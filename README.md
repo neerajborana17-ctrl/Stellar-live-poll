@@ -5,25 +5,18 @@ Connect a Stellar wallet, vote once, and watch results and a live activity
 feed update in real time as other people vote — no backend server, no
 database, just a smart contract on Stellar Testnet.
 
-> **Status:** contract code and frontend are complete and reviewed by hand.
-> They have **not yet been built, tested, or deployed** in this environment
-> because it has no network access (see "Manual Steps" below). Follow the
-> commands in this README on your own machine to build, test, and deploy.
-
 ---
 
 ## Features
 
 - Stellar Testnet + a real Soroban smart contract (`live_poll`)
-- Multi-wallet support (Freighter and other Stellar wallets, via
-  StellarWalletsKit)
+- Multi-wallet support (Freighter and other Stellar wallets, via StellarWalletsKit)
 - Decentralized voting — the vote and its tally live entirely on-chain
 - One vote per wallet, enforced by the contract (not just the UI)
 - Real-time `VoteCast` contract event integration (no page refresh)
 - Live results with progress bars and exact vote counts
 - Live activity feed of who voted for what
-- Step-by-step transaction status (preparing → approval → submitted →
-  pending → confirmed)
+- Step-by-step transaction status (preparing → approval → submitted → pending → confirmed)
 - Friendly error handling for wallet, user, and contract failures
 
 ---
@@ -39,7 +32,6 @@ database, just a smart contract on Stellar Testnet.
 | Chain access | `@stellar/stellar-sdk` (Soroban RPC client) |
 | Wallets | `@creit.tech/stellar-wallets-kit` (Freighter + others) |
 | Hosting | Vercel (frontend only — the contract lives on Stellar Testnet) |
-
 ---
 
 ## Architecture
@@ -77,7 +69,7 @@ stellar-live-poll/
 │   │   │                     # TransactionStatus, ActivityFeed, ErrorMessage,
 │   │   │                     # PollStats, ContractInfo
 │   │   ├── hooks/            # useWallet, usePoll, useEvents
-│   │   ├── lib/               # stellar.ts (network/wallet config),
+│   │   ├── lib/              # stellar.ts (network/wallet config),
 │   │   │                     # contract.ts (build/sign/submit + error mapping)
 │   │   ├── types/
 │   │   ├── App.tsx
@@ -85,7 +77,7 @@ stellar-live-poll/
 │   ├── package.json
 │   └── vite.config.ts
 ├── docs/
-│   └── wallet-options.png    # add after running locally, see docs/README.md
+│   └── wallet-options.png    
 ├── .env.example
 ├── .gitignore
 └── README.md
@@ -96,8 +88,8 @@ stellar-live-poll/
 ## Installation
 
 ```bash
-git clone <your-github-repository-url>
-cd stellar-live-poll
+git clone [https://github.com/neerajborana17-ctrl/Stellar-live-poll.git](https://github.com/neerajborana17-ctrl/Stellar-live-poll.git)
+cd Stellar-live-poll
 cd frontend
 npm install
 ```
@@ -118,9 +110,9 @@ cp .env.example frontend/.env
 
 ```env
 VITE_STELLAR_NETWORK=testnet
-VITE_STELLAR_RPC_URL=https://soroban-testnet.stellar.org
-VITE_STELLAR_CONTRACT_ID=      # filled in after you deploy the contract
-VITE_STELLAR_EXPLORER_URL=https://stellar.expert/explorer/testnet
+VITE_STELLAR_RPC_URL=[https://soroban-testnet.stellar.org](https://soroban-testnet.stellar.org)
+VITE_STELLAR_CONTRACT_ID=CD3DON2F3O6U7PE7E3PFMUQDBFHSI35ZUBYAVMVSQ5S5CZXVNQVQ7QZ6
+VITE_STELLAR_EXPLORER_URL=[https://stellar.expert/explorer/testnet](https://stellar.expert/explorer/testnet)
 ```
 
 Never commit a real `.env` file — it's already in `.gitignore`.
@@ -148,6 +140,17 @@ instead of silently failing, and the frontend (`lib/contract.ts`) maps each
 one to a plain-language message.
 
 ---
+##Deployment & Verification Details
+```Network: Stellar Testnet
+
+Deployed Smart Contract ID: CD3DON2F3O6U7PE7E3PFMUQDBFHSI35ZUBYAVMVSQ5S5CZXVNQVQ7QZ6
+
+Contract Explorer: View on Stellar Expert
+
+Deployment Transaction Proof Hash: 869ce2270c0b32a0a6dc0190a0372898aa893297b69dfed2876e468f6d19cb152
+
+Transaction Explorer Link: View Tx on Stellar Expert
+```
 
 ## Contract Deployment
 
